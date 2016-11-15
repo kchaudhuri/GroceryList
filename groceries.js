@@ -14,6 +14,7 @@ function addItem()
   iconClose.classList.add("glyphicon");
   iconClose.classList.add("glyphicon-remove");
   btnClose.appendChild(iconClose);
+  btnClose.addEventListener("click",removeParentListItem);
 
 
   var itemName = document.createTextNode(input);
@@ -23,6 +24,12 @@ function addItem()
   document.getElementById('newItem').value = "";
 }
 
+function removeParentListItem()
+{
+  var mom = this.parentNode;
+  var grandma = mom.parentNode;
+  grandma.removeChild(mom);
+}
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
